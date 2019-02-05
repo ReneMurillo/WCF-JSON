@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ClienteAspNet.Models.RolesView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Roles</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Crear", new { }, new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar", new { id=item.IdRol  }, new { @class ="btn btn-success"}) |
+            @Html.ActionLink("Details", "Detalle", new { id = item.IdRol }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Eliminar", new { id = item.IdRol }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

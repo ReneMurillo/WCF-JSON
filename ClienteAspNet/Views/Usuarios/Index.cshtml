@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ClienteAspNet.Models.UserView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Crear", new { }, new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.IdUser  }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id = item.IdUser }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdUser }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
